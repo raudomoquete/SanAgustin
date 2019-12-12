@@ -1,0 +1,1044 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SanAgustinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bautizos">
+          <Key>
+            <PropertyRef Name="BautizoId" />
+          </Key>
+          <Property Name="BautizoId" Type="int" Nullable="false" />
+          <Property Name="Bautizado" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="FechaBautizo" Type="datetime" Nullable="false" />
+          <Property Name="LugarBautizo" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="PadreBautizado" Type="varchar" MaxLength="40" />
+          <Property Name="Cedpadre" Type="varchar" MaxLength="13" />
+          <Property Name="MadreBautizado" Type="varchar" MaxLength="40" />
+          <Property Name="Cedmadre" Type="varchar" MaxLength="13" />
+          <Property Name="PadrinoBautizado" Type="varchar" MaxLength="40" />
+          <Property Name="Cedpadrino" Type="varchar" MaxLength="13" />
+          <Property Name="Representante" Type="varchar" MaxLength="40" />
+          <Property Name="Cedrepresentante" Type="varchar" MaxLength="13" />
+          <Property Name="Comentario" Type="varchar" MaxLength="100" />
+          <Property Name="Celebrante" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SanAgustin.dbo.Bodas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Bodas">
+          <Key>
+            <PropertyRef Name="BodaId" />
+            <PropertyRef Name="Casados" />
+            <PropertyRef Name="CedNovio" />
+            <PropertyRef Name="CedNovia" />
+            <PropertyRef Name="FechaBoda" />
+            <PropertyRef Name="LugarBoda" />
+            <PropertyRef Name="Celebrante" />
+            <PropertyRef Name="ActaMatrimonio" />
+          </Key>
+          <Property Name="BodaId" Type="int" Nullable="false" />
+          <Property Name="Casados" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="NombreNovio" Type="varchar" MaxLength="30" />
+          <Property Name="CedNovio" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="NombreNovia" Type="varchar" MaxLength="30" />
+          <Property Name="CedNovia" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="FechaBoda" Type="datetime" Nullable="false" />
+          <Property Name="LugarBoda" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="PadrinoBoda" Type="varchar" MaxLength="40" />
+          <Property Name="CedPadrino" Type="varchar" MaxLength="13" />
+          <Property Name="MadriaBoda" Type="varchar" MaxLength="40" />
+          <Property Name="CedMadrina" Type="varchar" MaxLength="13" />
+          <Property Name="NombreRepresentate" Type="varchar" MaxLength="40" />
+          <Property Name="CedRepresentante" Type="varchar" MaxLength="13" />
+          <Property Name="Comentario" Type="varchar" MaxLength="100" />
+          <Property Name="Testigo1" Type="varchar" MaxLength="40" />
+          <Property Name="CedTestigo1" Type="varchar" MaxLength="13" />
+          <Property Name="Testigo2" Type="varchar" MaxLength="40" />
+          <Property Name="CedTestigo2" Type="varchar" MaxLength="13" />
+          <Property Name="Celebrante" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="ActaMatrimonio" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SanAgustin.dbo.Cargos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Cargos">
+          <Key>
+            <PropertyRef Name="CargoId" />
+            <PropertyRef Name="Cargo" />
+          </Key>
+          <Property Name="CargoId" Type="int" Nullable="false" />
+          <Property Name="Cargo" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SanAgustin.dbo.Comunidades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Comunidades">
+          <Key>
+            <PropertyRef Name="ComunidadId" />
+          </Key>
+          <Property Name="ComunidadId" Type="int" Nullable="false" />
+          <Property Name="NombreComunidad" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SanAgustin.dbo.Confirmacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Confirmacion">
+          <Key>
+            <PropertyRef Name="ConfirmacionId" />
+            <PropertyRef Name="Confirmado" />
+            <PropertyRef Name="FechaConfirmacion" />
+            <PropertyRef Name="LugarConfirmacion" />
+            <PropertyRef Name="Celebrante" />
+            <PropertyRef Name="ActaConfirmacion" />
+          </Key>
+          <Property Name="ConfirmacionId" Type="int" Nullable="false" />
+          <Property Name="Confirmado" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="FechaConfirmacion" Type="datetime" Nullable="false" />
+          <Property Name="LugarConfirmacion" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="PadreConfirmado" Type="varchar" MaxLength="40" />
+          <Property Name="CedPadre" Type="varchar" MaxLength="13" />
+          <Property Name="MadreConfirmado" Type="varchar" MaxLength="40" />
+          <Property Name="CedMadre" Type="varchar" MaxLength="13" />
+          <Property Name="PadrinoConfirmado" Type="varchar" MaxLength="40" />
+          <Property Name="CedPadrino" Type="varchar" MaxLength="13" />
+          <Property Name="MadrinaConfirmado" Type="varchar" MaxLength="40" />
+          <Property Name="CedMadrina" Type="varchar" MaxLength="13" />
+          <Property Name="Representante" Type="varchar" MaxLength="40" />
+          <Property Name="CedRepresentante" Type="varchar" MaxLength="13" />
+          <Property Name="Comentario" Type="varchar" MaxLength="100" />
+          <Property Name="Celebrante" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="ActaConfirmacion" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InfAdicional">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Genero" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+          <Property Name="Nacionalidad" Type="varchar" MaxLength="20" />
+          <Property Name="NivelAcademico" Type="varchar" MaxLength="30" />
+          <Property Name="EstadoCivil" Type="varchar" MaxLength="30" />
+          <Property Name="image" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PersonalSA">
+          <Key>
+            <PropertyRef Name="PersonalId" />
+          </Key>
+          <Property Name="PersonalId" Type="int" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="13" />
+          <Property Name="Telefono" Type="varchar" MaxLength="16" />
+          <Property Name="Direccion" Type="varchar" MaxLength="40" />
+          <Property Name="Comunidad" Type="varchar" MaxLength="25" />
+          <Property Name="Cargo" Type="varchar" MaxLength="35" />
+        </EntityType>
+        <EntityType Name="PrimeraComunion">
+          <Key>
+            <PropertyRef Name="ComunionId" />
+          </Key>
+          <Property Name="ComunionId" Type="int" Nullable="false" />
+          <Property Name="RecComunion" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="FechaComunion" Type="datetime" Nullable="false" />
+          <Property Name="LugarComunion" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="PadreComunion" Type="varchar" MaxLength="40" />
+          <Property Name="CedPadre" Type="varchar" MaxLength="13" />
+          <Property Name="MadreComunion" Type="varchar" MaxLength="40" />
+          <Property Name="CedMadre" Type="varchar" MaxLength="13" />
+          <Property Name="PadrinoComunion" Type="varchar" MaxLength="40" />
+          <Property Name="CedPadrino" Type="varchar" MaxLength="13" />
+          <Property Name="MadrinaComunion" Type="varchar" MaxLength="40" />
+          <Property Name="CedMadrina" Type="varchar" MaxLength="13" />
+          <Property Name="Representante" Type="varchar" MaxLength="40" />
+          <Property Name="CedRepresentante" Type="varchar" MaxLength="13" />
+          <Property Name="Comentario" Type="varchar" MaxLength="100" />
+          <Property Name="Celebrante" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="ActaComunion" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sacramentos">
+          <Key>
+            <PropertyRef Name="SacramentoId" />
+          </Key>
+          <Property Name="SacramentoId" Type="int" Nullable="false" />
+          <Property Name="TipoSacramento" Type="varchar" MaxLength="17" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SanAgustin.dbo.Sacramentos SanAgustin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Sacramentos SanAgustin">
+          <Key>
+            <PropertyRef Name="BautizoId" />
+            <PropertyRef Name="ComunionId" />
+            <PropertyRef Name="ConfirmacionId" />
+            <PropertyRef Name="BodaId" />
+          </Key>
+          <Property Name="BautizoId" Type="int" Nullable="false" />
+          <Property Name="ComunionId" Type="int" Nullable="false" />
+          <Property Name="ConfirmacionId" Type="int" Nullable="false" />
+          <Property Name="BodaId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="BauSacr">
+          <End Role="Sacramentos" Type="Self.Sacramentos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bautizos" Type="Self.Bautizos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sacramentos">
+              <PropertyRef Name="SacramentoId" />
+            </Principal>
+            <Dependent Role="Bautizos">
+              <PropertyRef Name="BautizoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BodSacr">
+          <End Role="Sacramentos" Type="Self.Sacramentos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bodas" Type="Self.Bodas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sacramentos">
+              <PropertyRef Name="SacramentoId" />
+            </Principal>
+            <Dependent Role="Bodas">
+              <PropertyRef Name="BodaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CarPer">
+          <End Role="PersonalSA" Type="Self.PersonalSA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cargos" Type="Self.Cargos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalSA">
+              <PropertyRef Name="PersonalId" />
+            </Principal>
+            <Dependent Role="Cargos">
+              <PropertyRef Name="CargoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ComPer">
+          <End Role="PersonalSA" Type="Self.PersonalSA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Comunidades" Type="Self.Comunidades" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalSA">
+              <PropertyRef Name="PersonalId" />
+            </Principal>
+            <Dependent Role="Comunidades">
+              <PropertyRef Name="ComunidadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ComSacr">
+          <End Role="Sacramentos" Type="Self.Sacramentos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PrimeraComunion" Type="Self.PrimeraComunion" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sacramentos">
+              <PropertyRef Name="SacramentoId" />
+            </Principal>
+            <Dependent Role="PrimeraComunion">
+              <PropertyRef Name="ComunionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConfSacr">
+          <End Role="Sacramentos" Type="Self.Sacramentos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Confirmacion" Type="Self.Confirmacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sacramentos">
+              <PropertyRef Name="SacramentoId" />
+            </Principal>
+            <Dependent Role="Confirmacion">
+              <PropertyRef Name="ConfirmacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InfPer">
+          <End Role="PersonalSA" Type="Self.PersonalSA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InfAdicional" Type="Self.InfAdicional" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalSA">
+              <PropertyRef Name="PersonalId" />
+            </Principal>
+            <Dependent Role="InfAdicional">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SacrPer">
+          <End Role="PersonalSA" Type="Self.PersonalSA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sacramentos" Type="Self.Sacramentos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalSA">
+              <PropertyRef Name="PersonalId" />
+            </Principal>
+            <Dependent Role="Sacramentos">
+              <PropertyRef Name="SacramentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="SanAgustinModelStoreContainer">
+          <EntitySet Name="Bautizos" EntityType="Self.Bautizos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfAdicional" EntityType="Self.InfAdicional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonalSA" EntityType="Self.PersonalSA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrimeraComunion" EntityType="Self.PrimeraComunion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sacramentos" EntityType="Self.Sacramentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bodas" EntityType="Self.Bodas" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Bodas].[BodaId] AS [BodaId], 
+    [Bodas].[Casados] AS [Casados], 
+    [Bodas].[NombreNovio] AS [NombreNovio], 
+    [Bodas].[CedNovio] AS [CedNovio], 
+    [Bodas].[NombreNovia] AS [NombreNovia], 
+    [Bodas].[CedNovia] AS [CedNovia], 
+    [Bodas].[FechaBoda] AS [FechaBoda], 
+    [Bodas].[LugarBoda] AS [LugarBoda], 
+    [Bodas].[PadrinoBoda] AS [PadrinoBoda], 
+    [Bodas].[CedPadrino] AS [CedPadrino], 
+    [Bodas].[MadriaBoda] AS [MadriaBoda], 
+    [Bodas].[CedMadrina] AS [CedMadrina], 
+    [Bodas].[NombreRepresentate] AS [NombreRepresentate], 
+    [Bodas].[CedRepresentante] AS [CedRepresentante], 
+    [Bodas].[Comentario] AS [Comentario], 
+    [Bodas].[Testigo1] AS [Testigo1], 
+    [Bodas].[CedTestigo1] AS [CedTestigo1], 
+    [Bodas].[Testigo2] AS [Testigo2], 
+    [Bodas].[CedTestigo2] AS [CedTestigo2], 
+    [Bodas].[Celebrante] AS [Celebrante], 
+    [Bodas].[ActaMatrimonio] AS [ActaMatrimonio]
+    FROM [dbo].[Bodas] AS [Bodas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cargos" EntityType="Self.Cargos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Cargos].[CargoId] AS [CargoId], 
+    [Cargos].[Cargo] AS [Cargo]
+    FROM [dbo].[Cargos] AS [Cargos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Comunidades" EntityType="Self.Comunidades" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Comunidades].[ComunidadId] AS [ComunidadId], 
+    [Comunidades].[NombreComunidad] AS [NombreComunidad]
+    FROM [dbo].[Comunidades] AS [Comunidades]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Confirmacion" EntityType="Self.Confirmacion" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Confirmacion].[ConfirmacionId] AS [ConfirmacionId], 
+    [Confirmacion].[Confirmado] AS [Confirmado], 
+    [Confirmacion].[FechaConfirmacion] AS [FechaConfirmacion], 
+    [Confirmacion].[LugarConfirmacion] AS [LugarConfirmacion], 
+    [Confirmacion].[PadreConfirmado] AS [PadreConfirmado], 
+    [Confirmacion].[CedPadre] AS [CedPadre], 
+    [Confirmacion].[MadreConfirmado] AS [MadreConfirmado], 
+    [Confirmacion].[CedMadre] AS [CedMadre], 
+    [Confirmacion].[PadrinoConfirmado] AS [PadrinoConfirmado], 
+    [Confirmacion].[CedPadrino] AS [CedPadrino], 
+    [Confirmacion].[MadrinaConfirmado] AS [MadrinaConfirmado], 
+    [Confirmacion].[CedMadrina] AS [CedMadrina], 
+    [Confirmacion].[Representante] AS [Representante], 
+    [Confirmacion].[CedRepresentante] AS [CedRepresentante], 
+    [Confirmacion].[Comentario] AS [Comentario], 
+    [Confirmacion].[Celebrante] AS [Celebrante], 
+    [Confirmacion].[ActaConfirmacion] AS [ActaConfirmacion]
+    FROM [dbo].[Confirmacion] AS [Confirmacion]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sacramentos SanAgustin" EntityType="Self.Sacramentos SanAgustin" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Sacramentos SanAgustin].[BautizoId] AS [BautizoId], 
+    [Sacramentos SanAgustin].[ComunionId] AS [ComunionId], 
+    [Sacramentos SanAgustin].[ConfirmacionId] AS [ConfirmacionId], 
+    [Sacramentos SanAgustin].[BodaId] AS [BodaId]
+    FROM [dbo].[Sacramentos SanAgustin] AS [Sacramentos SanAgustin]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="BauSacr" Association="Self.BauSacr">
+            <End Role="Sacramentos" EntitySet="Sacramentos" />
+            <End Role="Bautizos" EntitySet="Bautizos" />
+          </AssociationSet>
+          <AssociationSet Name="BodSacr" Association="Self.BodSacr">
+            <End Role="Sacramentos" EntitySet="Sacramentos" />
+            <End Role="Bodas" EntitySet="Bodas" />
+          </AssociationSet>
+          <AssociationSet Name="CarPer" Association="Self.CarPer">
+            <End Role="PersonalSA" EntitySet="PersonalSA" />
+            <End Role="Cargos" EntitySet="Cargos" />
+          </AssociationSet>
+          <AssociationSet Name="ComPer" Association="Self.ComPer">
+            <End Role="PersonalSA" EntitySet="PersonalSA" />
+            <End Role="Comunidades" EntitySet="Comunidades" />
+          </AssociationSet>
+          <AssociationSet Name="ComSacr" Association="Self.ComSacr">
+            <End Role="Sacramentos" EntitySet="Sacramentos" />
+            <End Role="PrimeraComunion" EntitySet="PrimeraComunion" />
+          </AssociationSet>
+          <AssociationSet Name="ConfSacr" Association="Self.ConfSacr">
+            <End Role="Sacramentos" EntitySet="Sacramentos" />
+            <End Role="Confirmacion" EntitySet="Confirmacion" />
+          </AssociationSet>
+          <AssociationSet Name="InfPer" Association="Self.InfPer">
+            <End Role="PersonalSA" EntitySet="PersonalSA" />
+            <End Role="InfAdicional" EntitySet="InfAdicional" />
+          </AssociationSet>
+          <AssociationSet Name="SacrPer" Association="Self.SacrPer">
+            <End Role="PersonalSA" EntitySet="PersonalSA" />
+            <End Role="Sacramentos" EntitySet="Sacramentos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SanAgustinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bautizo">
+          <Key>
+            <PropertyRef Name="BautizoId" />
+          </Key>
+          <Property Name="BautizoId" Type="Int32" Nullable="false" />
+          <Property Name="Bautizado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaBautizo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LugarBautizo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PadreBautizado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Cedpadre" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="MadreBautizado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Cedmadre" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="PadrinoBautizado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Cedpadrino" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Representante" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Cedrepresentante" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Celebrante" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sacramento" Relationship="Self.BauSacr" FromRole="Bautizos" ToRole="Sacramentos" />
+        </EntityType>
+        <EntityType Name="InfAdicional">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Genero" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="Nacionalidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NivelAcademico" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoCivil" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PersonalSA" Relationship="Self.InfPer" FromRole="InfAdicional" ToRole="PersonalSA" />
+        </EntityType>
+        <EntityType Name="PersonalSA">
+          <Key>
+            <PropertyRef Name="PersonalId" />
+          </Key>
+          <Property Name="PersonalId" Type="Int32" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cedula" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Comunidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Cargo" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InfAdicional" Relationship="Self.InfPer" FromRole="PersonalSA" ToRole="InfAdicional" />
+          <NavigationProperty Name="Cargos" Relationship="Self.CarPer" FromRole="PersonalSA" ToRole="Cargos" />
+          <NavigationProperty Name="Comunidade" Relationship="Self.ComPer" FromRole="PersonalSA" ToRole="Comunidades" />
+          <NavigationProperty Name="Sacramento" Relationship="Self.SacrPer" FromRole="PersonalSA" ToRole="Sacramentos" />
+        </EntityType>
+        <EntityType Name="PrimeraComunion">
+          <Key>
+            <PropertyRef Name="ComunionId" />
+          </Key>
+          <Property Name="ComunionId" Type="Int32" Nullable="false" />
+          <Property Name="RecComunion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaComunion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LugarComunion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PadreComunion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedPadre" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="MadreComunion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedMadre" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="PadrinoComunion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedPadrino" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="MadrinaComunion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedMadrina" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Representante" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedRepresentante" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Celebrante" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ActaComunion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sacramento" Relationship="Self.ComSacr" FromRole="PrimeraComunion" ToRole="Sacramentos" />
+        </EntityType>
+        <EntityType Name="Sacramento">
+          <Key>
+            <PropertyRef Name="SacramentoId" />
+          </Key>
+          <Property Name="SacramentoId" Type="Int32" Nullable="false" />
+          <Property Name="TipoSacramento" Type="String" MaxLength="17" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Bautizo" Relationship="Self.BauSacr" FromRole="Sacramentos" ToRole="Bautizos" />
+          <NavigationProperty Name="PersonalSA" Relationship="Self.SacrPer" FromRole="Sacramentos" ToRole="PersonalSA" />
+          <NavigationProperty Name="PrimeraComunion" Relationship="Self.ComSacr" FromRole="Sacramentos" ToRole="PrimeraComunion" />
+          <NavigationProperty Name="Bodas" Relationship="Self.BodSacr" FromRole="Sacramentos" ToRole="Bodas" />
+          <NavigationProperty Name="Confirmacions" Relationship="Self.ConfSacr" FromRole="Sacramentos" ToRole="Confirmacion" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Boda">
+          <Key>
+            <PropertyRef Name="BodaId" />
+            <PropertyRef Name="Casados" />
+            <PropertyRef Name="CedNovio" />
+            <PropertyRef Name="CedNovia" />
+            <PropertyRef Name="FechaBoda" />
+            <PropertyRef Name="LugarBoda" />
+            <PropertyRef Name="Celebrante" />
+            <PropertyRef Name="ActaMatrimonio" />
+          </Key>
+          <Property Name="BodaId" Type="Int32" Nullable="false" />
+          <Property Name="Casados" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreNovio" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CedNovio" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreNovia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CedNovia" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaBoda" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LugarBoda" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PadrinoBoda" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedPadrino" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="MadriaBoda" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedMadrina" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="NombreRepresentate" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedRepresentante" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Testigo1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedTestigo1" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Testigo2" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedTestigo2" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Celebrante" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ActaMatrimonio" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sacramento" Relationship="Self.BodSacr" FromRole="Bodas" ToRole="Sacramentos" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="CargoId" />
+            <PropertyRef Name="Cargo1" />
+          </Key>
+          <Property Name="CargoId" Type="Int32" Nullable="false" />
+          <Property Name="Cargo1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PersonalSA" Relationship="Self.CarPer" FromRole="Cargos" ToRole="PersonalSA" />
+        </EntityType>
+        <EntityType Name="Comunidade">
+          <Key>
+            <PropertyRef Name="ComunidadId" />
+          </Key>
+          <Property Name="ComunidadId" Type="Int32" Nullable="false" />
+          <Property Name="NombreComunidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PersonalSA" Relationship="Self.ComPer" FromRole="Comunidades" ToRole="PersonalSA" />
+        </EntityType>
+        <EntityType Name="Confirmacion">
+          <Key>
+            <PropertyRef Name="ConfirmacionId" />
+            <PropertyRef Name="Confirmado" />
+            <PropertyRef Name="FechaConfirmacion" />
+            <PropertyRef Name="LugarConfirmacion" />
+            <PropertyRef Name="Celebrante" />
+            <PropertyRef Name="ActaConfirmacion" />
+          </Key>
+          <Property Name="ConfirmacionId" Type="Int32" Nullable="false" />
+          <Property Name="Confirmado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaConfirmacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LugarConfirmacion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PadreConfirmado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedPadre" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="MadreConfirmado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedMadre" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="PadrinoConfirmado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedPadrino" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="MadrinaConfirmado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedMadrina" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Representante" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CedRepresentante" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Celebrante" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ActaConfirmacion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sacramento" Relationship="Self.ConfSacr" FromRole="Confirmacion" ToRole="Sacramentos" />
+        </EntityType>
+        <EntityType Name="Sacramentos_SanAgustin">
+          <Key>
+            <PropertyRef Name="BautizoId" />
+            <PropertyRef Name="ComunionId" />
+            <PropertyRef Name="ConfirmacionId" />
+            <PropertyRef Name="BodaId" />
+          </Key>
+          <Property Name="BautizoId" Type="Int32" Nullable="false" />
+          <Property Name="ComunionId" Type="Int32" Nullable="false" />
+          <Property Name="ConfirmacionId" Type="Int32" Nullable="false" />
+          <Property Name="BodaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="BauSacr">
+          <End Role="Sacramentos" Type="Self.Sacramento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bautizos" Type="Self.Bautizo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sacramentos">
+              <PropertyRef Name="SacramentoId" />
+            </Principal>
+            <Dependent Role="Bautizos">
+              <PropertyRef Name="BautizoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InfPer">
+          <End Role="PersonalSA" Type="Self.PersonalSA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InfAdicional" Type="Self.InfAdicional" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalSA">
+              <PropertyRef Name="PersonalId" />
+            </Principal>
+            <Dependent Role="InfAdicional">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CarPer">
+          <End Role="PersonalSA" Type="Self.PersonalSA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cargos" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalSA">
+              <PropertyRef Name="PersonalId" />
+            </Principal>
+            <Dependent Role="Cargos">
+              <PropertyRef Name="CargoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ComPer">
+          <End Role="PersonalSA" Type="Self.PersonalSA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Comunidades" Type="Self.Comunidade" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalSA">
+              <PropertyRef Name="PersonalId" />
+            </Principal>
+            <Dependent Role="Comunidades">
+              <PropertyRef Name="ComunidadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SacrPer">
+          <End Role="PersonalSA" Type="Self.PersonalSA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sacramentos" Type="Self.Sacramento" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalSA">
+              <PropertyRef Name="PersonalId" />
+            </Principal>
+            <Dependent Role="Sacramentos">
+              <PropertyRef Name="SacramentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ComSacr">
+          <End Role="Sacramentos" Type="Self.Sacramento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PrimeraComunion" Type="Self.PrimeraComunion" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sacramentos">
+              <PropertyRef Name="SacramentoId" />
+            </Principal>
+            <Dependent Role="PrimeraComunion">
+              <PropertyRef Name="ComunionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BodSacr">
+          <End Role="Sacramentos" Type="Self.Sacramento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bodas" Type="Self.Boda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sacramentos">
+              <PropertyRef Name="SacramentoId" />
+            </Principal>
+            <Dependent Role="Bodas">
+              <PropertyRef Name="BodaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConfSacr">
+          <End Role="Sacramentos" Type="Self.Sacramento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Confirmacion" Type="Self.Confirmacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sacramentos">
+              <PropertyRef Name="SacramentoId" />
+            </Principal>
+            <Dependent Role="Confirmacion">
+              <PropertyRef Name="ConfirmacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SanAgustinEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bautizos" EntityType="Self.Bautizo" />
+          <EntitySet Name="InfAdicionals" EntityType="Self.InfAdicional" />
+          <EntitySet Name="PersonalSAs" EntityType="Self.PersonalSA" />
+          <EntitySet Name="PrimeraComunions" EntityType="Self.PrimeraComunion" />
+          <EntitySet Name="Sacramentos" EntityType="Self.Sacramento" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Bodas" EntityType="Self.Boda" />
+          <EntitySet Name="Cargos" EntityType="Self.Cargo" />
+          <EntitySet Name="Comunidades" EntityType="Self.Comunidade" />
+          <EntitySet Name="Confirmacions" EntityType="Self.Confirmacion" />
+          <EntitySet Name="Sacramentos_SanAgustins" EntityType="Self.Sacramentos_SanAgustin" />
+          <AssociationSet Name="BauSacr" Association="Self.BauSacr">
+            <End Role="Sacramentos" EntitySet="Sacramentos" />
+            <End Role="Bautizos" EntitySet="Bautizos" />
+          </AssociationSet>
+          <AssociationSet Name="InfPer" Association="Self.InfPer">
+            <End Role="PersonalSA" EntitySet="PersonalSAs" />
+            <End Role="InfAdicional" EntitySet="InfAdicionals" />
+          </AssociationSet>
+          <AssociationSet Name="CarPer" Association="Self.CarPer">
+            <End Role="PersonalSA" EntitySet="PersonalSAs" />
+            <End Role="Cargos" EntitySet="Cargos" />
+          </AssociationSet>
+          <AssociationSet Name="ComPer" Association="Self.ComPer">
+            <End Role="PersonalSA" EntitySet="PersonalSAs" />
+            <End Role="Comunidades" EntitySet="Comunidades" />
+          </AssociationSet>
+          <AssociationSet Name="SacrPer" Association="Self.SacrPer">
+            <End Role="PersonalSA" EntitySet="PersonalSAs" />
+            <End Role="Sacramentos" EntitySet="Sacramentos" />
+          </AssociationSet>
+          <AssociationSet Name="ComSacr" Association="Self.ComSacr">
+            <End Role="Sacramentos" EntitySet="Sacramentos" />
+            <End Role="PrimeraComunion" EntitySet="PrimeraComunions" />
+          </AssociationSet>
+          <AssociationSet Name="BodSacr" Association="Self.BodSacr">
+            <End Role="Sacramentos" EntitySet="Sacramentos" />
+            <End Role="Bodas" EntitySet="Bodas" />
+          </AssociationSet>
+          <AssociationSet Name="ConfSacr" Association="Self.ConfSacr">
+            <End Role="Sacramentos" EntitySet="Sacramentos" />
+            <End Role="Confirmacion" EntitySet="Confirmacions" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SanAgustinModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(SanAgustinModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SanAgustinModelStoreContainer" CdmEntityContainer="SanAgustinEntities">
+          <EntitySetMapping Name="Bautizos">
+            <EntityTypeMapping TypeName="SanAgustinModel.Bautizo">
+              <MappingFragment StoreEntitySet="Bautizos">
+                <ScalarProperty Name="BautizoId" ColumnName="BautizoId" />
+                <ScalarProperty Name="Bautizado" ColumnName="Bautizado" />
+                <ScalarProperty Name="FechaBautizo" ColumnName="FechaBautizo" />
+                <ScalarProperty Name="LugarBautizo" ColumnName="LugarBautizo" />
+                <ScalarProperty Name="PadreBautizado" ColumnName="PadreBautizado" />
+                <ScalarProperty Name="Cedpadre" ColumnName="Cedpadre" />
+                <ScalarProperty Name="MadreBautizado" ColumnName="MadreBautizado" />
+                <ScalarProperty Name="Cedmadre" ColumnName="Cedmadre" />
+                <ScalarProperty Name="PadrinoBautizado" ColumnName="PadrinoBautizado" />
+                <ScalarProperty Name="Cedpadrino" ColumnName="Cedpadrino" />
+                <ScalarProperty Name="Representante" ColumnName="Representante" />
+                <ScalarProperty Name="Cedrepresentante" ColumnName="Cedrepresentante" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Celebrante" ColumnName="Celebrante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfAdicionals">
+            <EntityTypeMapping TypeName="SanAgustinModel.InfAdicional">
+              <MappingFragment StoreEntitySet="InfAdicional">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+                <ScalarProperty Name="NivelAcademico" ColumnName="NivelAcademico" />
+                <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonalSAs">
+            <EntityTypeMapping TypeName="SanAgustinModel.PersonalSA">
+              <MappingFragment StoreEntitySet="PersonalSA">
+                <ScalarProperty Name="PersonalId" ColumnName="PersonalId" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Comunidad" ColumnName="Comunidad" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrimeraComunions">
+            <EntityTypeMapping TypeName="SanAgustinModel.PrimeraComunion">
+              <MappingFragment StoreEntitySet="PrimeraComunion">
+                <ScalarProperty Name="ComunionId" ColumnName="ComunionId" />
+                <ScalarProperty Name="RecComunion" ColumnName="RecComunion" />
+                <ScalarProperty Name="FechaComunion" ColumnName="FechaComunion" />
+                <ScalarProperty Name="LugarComunion" ColumnName="LugarComunion" />
+                <ScalarProperty Name="PadreComunion" ColumnName="PadreComunion" />
+                <ScalarProperty Name="CedPadre" ColumnName="CedPadre" />
+                <ScalarProperty Name="MadreComunion" ColumnName="MadreComunion" />
+                <ScalarProperty Name="CedMadre" ColumnName="CedMadre" />
+                <ScalarProperty Name="PadrinoComunion" ColumnName="PadrinoComunion" />
+                <ScalarProperty Name="CedPadrino" ColumnName="CedPadrino" />
+                <ScalarProperty Name="MadrinaComunion" ColumnName="MadrinaComunion" />
+                <ScalarProperty Name="CedMadrina" ColumnName="CedMadrina" />
+                <ScalarProperty Name="Representante" ColumnName="Representante" />
+                <ScalarProperty Name="CedRepresentante" ColumnName="CedRepresentante" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Celebrante" ColumnName="Celebrante" />
+                <ScalarProperty Name="ActaComunion" ColumnName="ActaComunion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sacramentos">
+            <EntityTypeMapping TypeName="SanAgustinModel.Sacramento">
+              <MappingFragment StoreEntitySet="Sacramentos">
+                <ScalarProperty Name="SacramentoId" ColumnName="SacramentoId" />
+                <ScalarProperty Name="TipoSacramento" ColumnName="TipoSacramento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SanAgustinModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bodas">
+            <EntityTypeMapping TypeName="SanAgustinModel.Boda">
+              <MappingFragment StoreEntitySet="Bodas">
+                <ScalarProperty Name="BodaId" ColumnName="BodaId" />
+                <ScalarProperty Name="Casados" ColumnName="Casados" />
+                <ScalarProperty Name="NombreNovio" ColumnName="NombreNovio" />
+                <ScalarProperty Name="CedNovio" ColumnName="CedNovio" />
+                <ScalarProperty Name="NombreNovia" ColumnName="NombreNovia" />
+                <ScalarProperty Name="CedNovia" ColumnName="CedNovia" />
+                <ScalarProperty Name="FechaBoda" ColumnName="FechaBoda" />
+                <ScalarProperty Name="LugarBoda" ColumnName="LugarBoda" />
+                <ScalarProperty Name="PadrinoBoda" ColumnName="PadrinoBoda" />
+                <ScalarProperty Name="CedPadrino" ColumnName="CedPadrino" />
+                <ScalarProperty Name="MadriaBoda" ColumnName="MadriaBoda" />
+                <ScalarProperty Name="CedMadrina" ColumnName="CedMadrina" />
+                <ScalarProperty Name="NombreRepresentate" ColumnName="NombreRepresentate" />
+                <ScalarProperty Name="CedRepresentante" ColumnName="CedRepresentante" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Testigo1" ColumnName="Testigo1" />
+                <ScalarProperty Name="CedTestigo1" ColumnName="CedTestigo1" />
+                <ScalarProperty Name="Testigo2" ColumnName="Testigo2" />
+                <ScalarProperty Name="CedTestigo2" ColumnName="CedTestigo2" />
+                <ScalarProperty Name="Celebrante" ColumnName="Celebrante" />
+                <ScalarProperty Name="ActaMatrimonio" ColumnName="ActaMatrimonio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cargos">
+            <EntityTypeMapping TypeName="SanAgustinModel.Cargo">
+              <MappingFragment StoreEntitySet="Cargos">
+                <ScalarProperty Name="CargoId" ColumnName="CargoId" />
+                <ScalarProperty Name="Cargo1" ColumnName="Cargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comunidades">
+            <EntityTypeMapping TypeName="SanAgustinModel.Comunidade">
+              <MappingFragment StoreEntitySet="Comunidades">
+                <ScalarProperty Name="ComunidadId" ColumnName="ComunidadId" />
+                <ScalarProperty Name="NombreComunidad" ColumnName="NombreComunidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Confirmacions">
+            <EntityTypeMapping TypeName="SanAgustinModel.Confirmacion">
+              <MappingFragment StoreEntitySet="Confirmacion">
+                <ScalarProperty Name="ConfirmacionId" ColumnName="ConfirmacionId" />
+                <ScalarProperty Name="Confirmado" ColumnName="Confirmado" />
+                <ScalarProperty Name="FechaConfirmacion" ColumnName="FechaConfirmacion" />
+                <ScalarProperty Name="LugarConfirmacion" ColumnName="LugarConfirmacion" />
+                <ScalarProperty Name="PadreConfirmado" ColumnName="PadreConfirmado" />
+                <ScalarProperty Name="CedPadre" ColumnName="CedPadre" />
+                <ScalarProperty Name="MadreConfirmado" ColumnName="MadreConfirmado" />
+                <ScalarProperty Name="CedMadre" ColumnName="CedMadre" />
+                <ScalarProperty Name="PadrinoConfirmado" ColumnName="PadrinoConfirmado" />
+                <ScalarProperty Name="CedPadrino" ColumnName="CedPadrino" />
+                <ScalarProperty Name="MadrinaConfirmado" ColumnName="MadrinaConfirmado" />
+                <ScalarProperty Name="CedMadrina" ColumnName="CedMadrina" />
+                <ScalarProperty Name="Representante" ColumnName="Representante" />
+                <ScalarProperty Name="CedRepresentante" ColumnName="CedRepresentante" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Celebrante" ColumnName="Celebrante" />
+                <ScalarProperty Name="ActaConfirmacion" ColumnName="ActaConfirmacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sacramentos_SanAgustins">
+            <EntityTypeMapping TypeName="SanAgustinModel.Sacramentos_SanAgustin">
+              <MappingFragment StoreEntitySet="Sacramentos SanAgustin">
+                <ScalarProperty Name="BautizoId" ColumnName="BautizoId" />
+                <ScalarProperty Name="ComunionId" ColumnName="ComunionId" />
+                <ScalarProperty Name="ConfirmacionId" ColumnName="ConfirmacionId" />
+                <ScalarProperty Name="BodaId" ColumnName="BodaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="SanAgustinModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="SanAgustinModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="SanAgustinModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="SanAgustinModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SanAgustinModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="SanAgustinModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SanAgustinModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SanAgustinModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SanAgustinModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

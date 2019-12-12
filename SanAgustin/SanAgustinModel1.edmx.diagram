@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c219037c42944e69852fa20b025695b3" Name="Diagram1">
+        <EntityTypeShape EntityType="SanAgustinModel.Bautizo" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanAgustinModel.InfAdicional" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanAgustinModel.PersonalSA" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanAgustinModel.PrimeraComunion" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanAgustinModel.Sacramento" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanAgustinModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanAgustinModel.Boda" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanAgustinModel.Cargo" Width="1.5" PointX="3" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanAgustinModel.Comunidade" Width="1.5" PointX="3" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanAgustinModel.Confirmacion" Width="1.5" PointX="5.25" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanAgustinModel.Sacramentos_SanAgustin" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="SanAgustinModel.BauSacr" ManuallyRouted="false" />
+        <AssociationConnector Association="SanAgustinModel.InfPer" ManuallyRouted="false" />
+        <AssociationConnector Association="SanAgustinModel.CarPer" ManuallyRouted="false" />
+        <AssociationConnector Association="SanAgustinModel.ComPer" ManuallyRouted="false" />
+        <AssociationConnector Association="SanAgustinModel.SacrPer" ManuallyRouted="false" />
+        <AssociationConnector Association="SanAgustinModel.ComSacr" ManuallyRouted="false" />
+        <AssociationConnector Association="SanAgustinModel.BodSacr" ManuallyRouted="false" />
+        <AssociationConnector Association="SanAgustinModel.ConfSacr" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

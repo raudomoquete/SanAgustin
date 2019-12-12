@@ -1,0 +1,128 @@
+﻿@model SanAgustin.Models.Bautizos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Bautizos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bautizado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bautizado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaBautizo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaBautizo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LugarBautizo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LugarBautizo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PadreBautizado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PadreBautizado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CedPadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CedPadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MadreBautizado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MadreBautizado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CedMadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CedMadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PadrinoBautizado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PadrinoBautizado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CedPadrino)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CedPadrino)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Representante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Representante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CedRepresentante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CedRepresentante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Celebrante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Celebrante)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
